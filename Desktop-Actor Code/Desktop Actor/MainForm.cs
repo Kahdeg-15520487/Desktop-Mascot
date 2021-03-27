@@ -89,5 +89,13 @@ namespace Desktop_Actor
             FrameTime = DateTime.Now;
             return (FrameTime - PrevFrameTime).TotalMilliseconds / 1000;
         }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }
