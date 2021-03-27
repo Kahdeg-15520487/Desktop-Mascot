@@ -1,0 +1,21 @@
+{
+    "FrameLength": 1.1,
+    "Idle": [
+      "konluludoll.png"
+    ],
+    "Carry_left": [
+      "konluludoll.png"
+    ],
+    "Carry_right": [
+      "konluludoll.png"
+    ],
+    "Air_vertical": [
+      "konluludoll.png"
+    ],
+    "Air_horizontal": [
+      "konluludoll.png"
+    ],
+    "Walk_left": [
+      "konluludoll.png"
+    ]
+  }

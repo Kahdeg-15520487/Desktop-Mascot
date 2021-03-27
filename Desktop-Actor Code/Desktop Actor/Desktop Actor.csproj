@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E5AC0A86-922E-43A9-A111-5FB96BC28B9C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Desktop_Actor</RootNamespace>
     <AssemblyName>Desktop Actor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -35,6 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Humper, Version=1.0.6093.38709, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humper.0.5.8\lib\portable-net45+win8+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Humper.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -51,11 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animations.cs" />
+    <Compile Include="Configuration\AnimationConfig.cs" />
     <Compile Include="Animator.cs" />
     <Compile Include="Box.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CollisionResponses\ConveyorCollisionResponse.cs" />
+    <Compile Include="Configuration\CollisionConfig.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
