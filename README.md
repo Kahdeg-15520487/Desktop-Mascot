@@ -1,5 +1,5 @@
 [![N|Solid](https://i.imgur.com/gSg0JVk.png)](https://twitter.com/PhylacteryLost)
-Download a [Copy!](https://drive.google.com/open?id=1dmeJtw2hUEC9tUNvFVBSc-A5Df4_tUV7)
+[Download!](https://github.com/Kahdeg-15520487/Desktop-Mascot/releases/latest)
 
 # What does it do?
 It's simple software that gives you a desktop buddy to play with and enjoy! Upon completion it will also include sound effects. All of which in addition to the animations will be easily customizable.
