@@ -12,8 +12,12 @@ namespace Desktop_Actor
     public class Animator
     {
         private GameObject gameObject;
-        private AnimationConfig anims;
+        private Animation anims;
         private string baseAnimPath;
+        private AnimationDetail currAnimDetail;
+
+        public DateTime LastTime;
+        public DateTime CurrentTime;
 
         public Animator(GameObject gameObject)
         {
@@ -22,11 +26,10 @@ namespace Desktop_Actor
             // Save anim json data and deserialize an Animation class.
             string jsonData = File.ReadAllText(Path.Combine("Data", gameObject.Name, "Animation.json"));
             this.baseAnimPath = Path.Combine("Data", gameObject.Name, "Frames");
-            anims = JsonConvert.DeserializeObject<AnimationConfig>(jsonData);
+            anims = new Animation(JsonConvert.DeserializeObject<AnimationConfig>(jsonData));
 
 
-            string animState = GetAnimState();
-            string path = Path.Combine(this.baseAnimPath, animState);
+            string path = Path.Combine(this.baseAnimPath, anims[AnimationName.Idle].Frames[0]);
             var img = FromFileImage(path);
             gameObject.Dimensions.Width = img.Width * gameObject.Scale;
             gameObject.Dimensions.Height = img.Height * gameObject.Scale;
@@ -35,8 +38,8 @@ namespace Desktop_Actor
         // Render target image.
         public void RenderActorFrame(Graphics gfx)
         {
-            string animState = GetAnimState();
-            string path = Path.Combine(this.baseAnimPath, animState);
+            UpdateAnimState();
+            string path = Path.Combine(this.baseAnimPath, currAnimDetail.CurrentFrame);
             var img = FromFileImage(path);
             gameObject.Dimensions.Width = img.Width * gameObject.Scale;
             gameObject.Dimensions.Height = img.Height * gameObject.Scale;
@@ -47,30 +50,36 @@ namespace Desktop_Actor
             gfx.DrawImage(img, gameObject.Position.X, gameObject.Position.Y, img.Width * gameObject.Scale, img.Height * gameObject.Scale);
         }
 
-        private string GetAnimState()
+        private void UpdateAnimState()
         {
-            string[] animFrames = anims.Idle;
+            currAnimDetail = anims[AnimationName.Idle];
             PointF velocity = gameObject.GetVelocity();
 
             if (velocity.Y < 0) // UP
             {
-                animFrames = anims.Idle;
+                currAnimDetail = anims[AnimationName.Idle];
             }
             else if (velocity.Y > 0) // Down.
             {
-                animFrames = anims.Air_vertical;
+                currAnimDetail = anims[AnimationName.Air_vertical];
             }
 
             if (velocity.X < 0) // Left.
             {
-                animFrames = anims.Carry_left;
+                currAnimDetail = anims[AnimationName.Carry_left];
             }
             else if (velocity.X > 0) // Right.
             {
-                animFrames = anims.Carry_right;
+                currAnimDetail = anims[AnimationName.Carry_right];
             }
 
-            return animFrames[0];
+            CurrentTime = DateTime.Now;
+
+            if ((CurrentTime - LastTime).TotalSeconds > currAnimDetail.FrameLength)
+            {
+                currAnimDetail.NextFrame();
+                LastTime = CurrentTime;
+            }
         }
 
         // Return target image.

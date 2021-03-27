@@ -1,23 +1,48 @@
 {
-    "FrameLength": 1.1,
-    "Idle": [
-      "idle_1.gif"
-    ],
-    "Carry_left": [
-      "carry_left.gif"
-    ],
-    "Carry_right": [
-      "carry_right.gif"
-    ],
-    "Air_vertical": [
-      "air_vertical.gif"
-    ],
-    "Air_horizontal": [
-      "air_horizontal.gif"
-    ],
-    "Walk_left": [
-      "walk_0.gif",
-      "walk_1.gif",
-      "walk_2.gif"
-    ]
-  }
+	"Details":[
+		{
+			"Name" : "Idle",
+			"FrameLength": 1,
+			"Frames": [
+			  "idle_1.gif"
+			]
+		},
+		{
+			"Name" : "Carry_left",
+			"FrameLength": 1,
+			"Frames": [
+			  "carry_left.gif"
+			]
+		},
+		{
+			"Name" : "Carry_right",
+			"FrameLength": 1,
+			"Frames": [
+			  "carry_right.gif"
+			]
+		},
+		{
+			"Name" : "Air_vertical",
+			"FrameLength": 1,
+			"Frames": [
+			  "air_vertical.gif"
+			]
+		},
+		{
+			"Name" : "Air_horizontal",
+			"FrameLength": 1,
+			"Frames": [
+			  "air_horizontal.gif"
+			]
+		},
+		{
+			"Name" : "Walk_left",
+			"FrameLength": 1,
+			"Frames": [
+			  "walk_0.gif",
+			  "walk_1.gif",
+			  "walk_2.gif"
+			]
+		},
+	]
+}

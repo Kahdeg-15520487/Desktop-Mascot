@@ -1,21 +1,49 @@
 {
-    "FrameLength": 1.1,
-    "Idle": [
-      "konluludoll.png"
-    ],
-    "Carry_left": [
-      "konluludoll.png"
-    ],
-    "Carry_right": [
-      "konluludoll.png"
-    ],
-    "Air_vertical": [
-      "konluludoll.png"
-    ],
-    "Air_horizontal": [
-      "konluludoll.png"
-    ],
-    "Walk_left": [
-      "konluludoll.png"
-    ]
+	"Details":[
+		{
+			"Name" : "Idle",
+			"FrameLength": 1,
+			"Frames": [
+			  "konluludoll.png",
+			  "konluludoll_activated_1.png",
+			  "konluludoll_activated_2.png",
+			  "konluludoll_activated_1.png"
+			]
+		},
+		{
+			"Name" : "Carry_left",
+			"FrameLength": 1,
+			"Frames": [
+			  "konluludoll.png"
+			]
+		},
+		{
+			"Name" : "Carry_right",
+			"FrameLength": 1,
+			"Frames": [
+			  "konluludoll.png"
+			]
+		},
+		{
+			"Name" : "Air_vertical",
+			"FrameLength": 1,
+			"Frames": [
+			  "konluludoll.png"
+			]
+		},
+		{
+			"Name" : "Air_horizontal",
+			"FrameLength": 1,
+			"Frames": [
+			  "konluludoll.png"
+			]
+		},
+		{
+			"Name" : "Walk_left",
+			"FrameLength": 1,
+			"Frames": [
+			  "konluludoll.png"
+			]
+		},
+	]
   }

@@ -1,21 +1,46 @@
 {
-    "FrameLength": 1.1,
-    "Idle": [
-      "conveyor.png"
-    ],
-    "Carry_left": [
-      "conveyor.png"
-    ],
-    "Carry_right": [
-      "conveyor.png"
-    ],
-    "Air_vertical": [
-      "conveyor.png"
-    ],
-    "Air_horizontal": [
-      "conveyor.png"
-    ],
-    "Walk_left": [
-      "conveyor.png"
-    ]
-  }
+	"Details":[
+		{
+			"Name" : "Idle",
+			"FrameLength": 1,
+			"Frames": [
+			  "conveyor.png"
+			]
+		},
+		{
+			"Name" : "Carry_left",
+			"FrameLength": 1,
+			"Frames": [
+			  "conveyor.png"
+			]
+		},
+		{
+			"Name" : "Carry_right",
+			"FrameLength": 1,
+			"Frames": [
+			  "conveyor.png"
+			]
+		},
+		{
+			"Name" : "Air_vertical",
+			"FrameLength": 1,
+			"Frames": [
+			  "conveyor.png"
+			]
+		},
+		{
+			"Name" : "Air_horizontal",
+			"FrameLength": 1,
+			"Frames": [
+			  "conveyor.png"
+			]
+		},
+		{
+			"Name" : "Walk_left",
+			"FrameLength": 1,
+			"Frames": [
+			  "conveyor.png"
+			]
+		},
+	]
+}

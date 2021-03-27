@@ -18,8 +18,7 @@ namespace Desktop_Actor
 {
     public partial class MainForm : Form
     {
-        private GameObject actor;
-        private GameObject spawner;
+        private List<GameObject> gameObjects;
         private Rectangle gameObjectPlayArea;
         private World world;
 
@@ -43,14 +42,23 @@ namespace Desktop_Actor
             world = new World(gameObjectPlayArea.Width, gameObjectPlayArea.Height);
 
             // Player char and animator component.
-            actor = new GameObject(this, gameObjectPlayArea, "konluludoll", 1200, 0.2f);
+            var actor = new GameObject(this, gameObjectPlayArea, "konluludoll", 1200, 0.2f);
             actor.Collision = world.Create(actor.Position.X, actor.Position.Y, actor.Dimensions.Width, actor.Dimensions.Height);
             actor.Collision.Data = actor;
 
+            var actor2 = new GameObject(this, gameObjectPlayArea, "test", 1200, 1f);
+            actor2.Collision = world.Create(actor2.Position.X, actor2.Position.Y, actor2.Dimensions.Width, actor2.Dimensions.Height);
+            actor2.Collision.Data = actor2;
+
             // Spawner
-            spawner = new GameObject(this, gameObjectPlayArea, "conveyor", 0, 0.2f);
+            var spawner = new GameObject(this, gameObjectPlayArea, "conveyor", 0, 0.2f);
             spawner.Collision = world.Create(spawner.Position.X, spawner.Position.Y, spawner.Dimensions.Width, spawner.Dimensions.Height);
             spawner.Collision.Data = spawner;
+
+            gameObjects = new List<GameObject>();
+            gameObjects.Add(actor);
+            gameObjects.Add(actor2);
+            gameObjects.Add(spawner);
 
             MessageBox.Show("Press ESC to exit.");
         }
@@ -61,14 +69,18 @@ namespace Desktop_Actor
 
             // Render actor.
             var gfx = eventArgs.Graphics;
-            this.actor.Animator.RenderActorFrame(gfx);
-            this.spawner.Animator.RenderActorFrame(gfx);
+            foreach (var go in gameObjects)
+            {
+                go.Animator.RenderActorFrame(gfx);
+            }
             gfx.ResetTransform();
 
             // Update movement position relative to fps.
             var fps = this.CalculateFPS();
-            this.actor.UpdatePositions(fps);
-            this.spawner.UpdatePositions(fps);
+            foreach (var go in gameObjects)
+            {
+                go.UpdatePositions(fps);
+            }
 
             Invalidate(); // Force control to be redrawn.
         }
