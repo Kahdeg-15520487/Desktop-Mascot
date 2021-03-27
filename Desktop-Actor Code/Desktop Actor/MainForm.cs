@@ -51,6 +51,8 @@ namespace Desktop_Actor
             spawner = new GameObject(this, gameObjectPlayArea, "conveyor", 0, 0.2f);
             spawner.Collision = world.Create(spawner.Position.X, spawner.Position.Y, spawner.Dimensions.Width, spawner.Dimensions.Height);
             spawner.Collision.Data = spawner;
+
+            MessageBox.Show("Press ESC to exit.");
         }
 
         protected override void OnPaint(PaintEventArgs eventArgs)
